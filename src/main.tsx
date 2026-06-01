@@ -18,7 +18,7 @@ const router = createBrowserRouter([{
     { path: "presets", element: <Presets /> },
     { path: "export", element: <ExportPage /> },
   ],
-}]);
+}], { basename: import.meta.env.DEV ? "/" : "/motion-token-studio/" });
 
 createRoot(document.getElementById("root")!).render(
   <I18nProvider><RouterProvider router={router} /></I18nProvider>
