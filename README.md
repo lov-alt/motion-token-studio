@@ -141,22 +141,15 @@ Instantly at **[lov-alt.github.io/motion-token-studio](https://lov-alt.github.io
 
 ## Ecosystem
 
-Motion Token Studio is part of a four-tool open-source suite covering the full design-to-code pipeline:
+Motion Token Studio is part of a five-tool open-source suite:
 
-```
-Design Token Studio     →  CSS Visual Toolbox   →  Typography Lab        →  Motion Token Studio
-┌─────────────────────┐   ┌───────────────────┐   ┌───────────────────┐   ┌──────────────────────┐
-│ Define design        │   │ Visually edit      │   │ Generate layouts   │   │ Design motion        │
-│ tokens (colors,      │   │ CSS properties     │   │ from content       │   │ tokens (easing,      │
-│ type, spacing)       │   │ (clip-path,        │   │ archetypes         │   │ duration, presets)   │
-│                      │   │ gradient, shadow)  │   │ (14 types, 8       │   │                      │
-│                      │   │                    │   │ traditions)        │   │                      │
-└─────────────────────┘   └───────────────────┘   └───────────────────┘   └──────────────────────┘
-```
-
-- **[Design Token Studio](https://github.com/lov-alt/design-token-studio)** — W3C DTCG token editor. Brand wizard, semantic colors, WCAG checker, image color extraction.
-- **[CSS Visual Toolbox](https://github.com/lov-alt/css-visual-toolbox)** — Visual CSS property editor. clip-path, gradients, box-shadow, border-radius. 8-framework export.
-- **[Typography Lab](https://github.com/lov-alt/typography-lab)** — Layout generator. 14 archetypes, 8 typographic traditions, local font import, 16 image blend modes.
+| Tool | What it does |
+|---|---|
+| **[Design Token Studio](https://github.com/lov-alt/design-token-studio)** | Define design tokens — colors, typography, spacing — with WCAG checker and 6 export formats |
+| **[CSS Visual Toolbox](https://github.com/lov-alt/css-visual-toolbox)** | Visually edit CSS properties (clip-path, gradients, shadows, border-radius). 8-framework export |
+| **[Typography Lab](https://github.com/lov-alt/typography-lab)** | Content-driven layout generator. 14 archetypes, 8 typographic traditions |
+| **Motion Token Studio** ← you are here | Design motion tokens — cubic-bezier editor, duration scale, 12 presets, 5 export formats |
+| **[Sound Garden](https://github.com/lov-alt/sound-garden)** | Real-time microphone → generative visual landscape (trees, waves, particles, circles) |
 
 ---
 
