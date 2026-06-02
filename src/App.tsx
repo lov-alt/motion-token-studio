@@ -14,42 +14,34 @@ export default function App() {
   const loc = useLocation();
   const isHome = loc.pathname === "/";
 
-  const [dark, setDark] = useState(() =>
-    localStorage.getItem("motion-theme") === "dark"
-  );
-
-  useEffect(() => {
-    document.body.classList.toggle("dark", dark);
-    localStorage.setItem("motion-theme", dark ? "dark" : "light");
-  }, [dark]);
-
   return (
-    <div className="min-h-screen bg-zinc-50 dark:bg-[#0f0f1a] transition-colors duration-300">
-      <header className={`${isHome ? "" : "border-b border-zinc-200/60 dark:border-zinc-800/60"} bg-white/80 dark:bg-[#0f0f1a]/80 backdrop-blur-xl sticky top-0 z-50`}>
-        <div className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
-          <Link to="/" className="font-medium tracking-tight text-zinc-900 dark:text-zinc-100 hover:text-indigo-600 transition-colors">
+    <div style={{ minHeight: "100vh", background: "#09090b", fontFamily: "system-ui, sans-serif" }}>
+      <header style={{
+        borderBottom: isHome ? "none" : "1px solid #27272a",
+        background: "rgba(9,9,11,0.9)", backdropFilter: "blur(20px)",
+        position: "sticky", top: 0, zIndex: 50, padding: "0 24px",
+      }}>
+        <div style={{ maxWidth: 960, margin: "0 auto", height: 56, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+          <Link to="/" style={{ fontWeight: 500, color: "#f4f4f5", textDecoration: "none", fontSize: 15, letterSpacing: "-0.01em" }}>
             {t.app.title}
           </Link>
-          <div className="flex items-center gap-1">
+          <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
             {!isHome && NAV.map((n) => (
-              <Link key={n.path} to={n.path}
-                className={`px-2.5 py-1.5 rounded-md text-xs font-medium transition-all duration-200 ${
-                  loc.pathname === n.path
-                    ? "bg-indigo-50 dark:bg-indigo-500/10 text-indigo-700 dark:text-indigo-400"
-                    : "text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-200 hover:bg-zinc-100 dark:hover:bg-zinc-800/50"
-                }`}>{t.nav[n.key]}</Link>
+              <Link key={n.path} to={n.path} style={{
+                padding: "6px 12px", borderRadius: 8, fontSize: 12, fontWeight: 500, textDecoration: "none",
+                color: loc.pathname === n.path ? "#818cf8" : "#71717a",
+                background: loc.pathname === n.path ? "rgba(99,102,241,0.1)" : "transparent",
+                transition: "all 0.15s",
+              }}>{t.nav[n.key]}</Link>
             ))}
             <select value={locale} onChange={(e) => setLocale(e.target.value as typeof locale)}
-              className="ml-2 px-2 py-1 text-xs rounded-lg border border-zinc-200 dark:border-zinc-700 bg-transparent text-zinc-500 dark:text-zinc-400 cursor-pointer">
+              style={{ padding: "4px 8px", fontSize: 11, borderRadius: 8, border: "1px solid #27272a", background: "transparent", color: "#71717a", cursor: "pointer", marginLeft: 8 }}>
               {available.map((l) => <option key={l.key} value={l.key}>{l.label}</option>)}
             </select>
-            <button type="button" onClick={() => setDark(!dark)}
-              className="w-7 h-7 flex items-center justify-center rounded text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors"
-              aria-label={t.common.darkMode}>{dark ? "☀" : "☾"}</button>
           </div>
         </div>
       </header>
-      <main className="flex-1"><Outlet /></main>
+      <main><Outlet /></main>
     </div>
   );
 }
